@@ -1,14 +1,15 @@
-﻿namespace RollbarSharp
+﻿namespace RollbarSharp.VNext
 {
     using Microsoft.Framework.ConfigurationModel;
+    using RollbarSharp;
     using RollbarSharp.Builders;
 
-    public class RollbarClient46 : RollbarClient
+    public class RollbarClient : RollbarSharp.RollbarClient
     {
-        public RollbarClient46(Configuration configuration)
+        public RollbarClient(Configuration configuration)
         {
             Configuration = configuration;
-            NoticeBuilder = new DataModelBuilder(Configuration);
+            NoticeBuilder = new RollbarSharp.DataModelBuilder(Configuration);
         }
 
         /// <summary>
@@ -16,12 +17,12 @@
         /// and all default <see cref="Configuration"/> values
         /// </summary>
         /// <param name="accessToken"></param>
-        public RollbarClient46(string accessToken)
+        public RollbarClient(string accessToken)
             : this(new Configuration(accessToken))
         {
         }
 
-        public RollbarClient46(IConfiguration config)
+        public RollbarClient(IConfiguration config)
             : this(JsonConfiguration.CreateFromConfig(config))
         {
         }

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollbarSharp.Mvc4Test", "Ro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollbarSharp.Tests", "RollbarSharp.Tests\RollbarSharp.Tests.csproj", "{898D9D95-D956-4284-82D5-6BFDBFDE14EB}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "RollbarSharp.46", "RollbarSharp.46\RollbarSharp.46.xproj", "{6525AA2A-4BD2-4AF4-9B30-4B0F31241676}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "RollbarSharp.VNext", "RollbarSharp.VNext\RollbarSharp.VNext.xproj", "{6525AA2A-4BD2-4AF4-9B30-4B0F31241676}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

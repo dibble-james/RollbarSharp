@@ -1,8 +1,8 @@
-﻿using System;
-using Microsoft.Framework.ConfigurationModel;
-
-namespace RollbarSharp
+﻿namespace RollbarSharp.VNext
 {
+    using System;
+    using Microsoft.Framework.ConfigurationModel;
+
     public class JsonConfiguration : Configuration
     {
         public JsonConfiguration(string accessToken) : base(accessToken)

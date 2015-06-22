@@ -1,4 +1,4 @@
-﻿namespace RollbarSharp.Builders
+﻿namespace RollbarSharp.VNext.Builders
 {
     using System;
     using System.Collections.Generic;
@@ -8,7 +8,7 @@
     using Microsoft.AspNet.Http;
     using RollbarSharp.Serialization;
 
-    public static class RequestModelBuilder46
+    public static class RequestModelBuilder
     {
         public static async Task<RequestModel> CreateFromHttpRequest(HttpRequest request, string[] scrubParams = null)
         {
