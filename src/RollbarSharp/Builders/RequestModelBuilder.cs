@@ -7,7 +7,7 @@ using RollbarSharp.Serialization;
 
 namespace RollbarSharp.Builders
 {
-    public static class RequestModelBuilder
+    public class RequestModelBuilder
     {
         /// <summary>
         /// Converts a standard <see cref="HttpRequest"/> to a <see cref="RequestModel"/>
@@ -54,7 +54,7 @@ namespace RollbarSharp.Builders
         // X-Forwarded-For header, if populated, contains a comma separated list of ip address
         // of each successive proxy server. Take the last or most reliable IP address if there
         // are multiple addresses.
-        private static string IpFromXForwardedFor(HttpRequest request)
+        protected static string IpFromXForwardedFor(HttpRequest request)
         {
             var forwardedFor = request.Headers["X-Forwarded-For"];
             if (!string.IsNullOrEmpty(forwardedFor) && forwardedFor.Contains(","))
@@ -71,7 +71,7 @@ namespace RollbarSharp.Builders
         /// <param name="dict"></param>
         /// <param name="scrubParams"></param>
         /// <returns></returns>
-        private static IDictionary<string, string> Scrub(IDictionary<string, string> dict, string[] scrubParams)
+        protected static IDictionary<string, string> Scrub(IDictionary<string, string> dict, string[] scrubParams)
         {
             if (dict == null || !dict.Any())
                 return dict;

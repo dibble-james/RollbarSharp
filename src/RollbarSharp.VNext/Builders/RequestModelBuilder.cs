@@ -8,7 +8,7 @@
     using Microsoft.AspNet.Http;
     using RollbarSharp.Serialization;
 
-    public static class RequestModelBuilder
+    public class RequestModelBuilder : RollbarSharp.Builders.RequestModelBuilder
     {
         public static async Task<RequestModel> CreateFromHttpRequest(HttpRequest request, string[] scrubParams = null)
         {
@@ -46,6 +46,14 @@
             m.PostParameters.Add("Body", await new StreamReader(request.Body).ReadToEndAsync());
 
             m.UserIp = request.HttpContext.GetFeature<IHttpConnectionFeature>()?.RemoteIpAddress.ToString();
+
+            if (scrubParams != null)
+            {
+                m.Headers = Scrub(m.Headers, scrubParams);
+                m.Session = Scrub(m.Session, scrubParams);
+                m.QueryStringParameters = Scrub(m.QueryStringParameters, scrubParams);
+                m.PostParameters = Scrub(m.PostParameters, scrubParams);
+            }
 
             return m;
         }
