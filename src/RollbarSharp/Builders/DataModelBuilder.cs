@@ -118,7 +118,7 @@ namespace RollbarSharp.Builders
         /// Current UTC date time as a UNIX timestamp
         /// </summary>
         /// <returns></returns>
-        private static double Now()
+        protected static double Now()
         {
             var epoch = new DateTime(1970, 1, 1);
             return (DateTime.UtcNow - epoch).TotalSeconds;
