@@ -122,6 +122,43 @@ You'll need to add the [NLog.RollbarSharp](https://github.com/mroach/NLog.Rollba
 </appSettings>
 ```
 
+### ASP.Net 5
+
+In `Startup.cs` in the `Configure(IApplicationBuilder)` method with either a `Configuration` instance:
+```csharp
+public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
+{
+    this.Configuration = new Configuration()
+               .AddJsonFile("config.json")
+               .AddEnvironmentVariables();
+
+    app.UseErrorPage(ErrorPageOptions.ShowAll);
+    app.UseRollbar(JsonConfiguration.CreateFromConfig(this.Configuration));
+}
+```
+Coupled with a `Config.json` file with a structure like:
+```json
+{
+  "Rollbar": {
+    "AccessToken": "My Rollbar Server Access Token",
+    "Environment": "This environment"
+  }
+}
+```
+
+Or just with an access token which will use the deafult configuration:
+```csharp
+public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
+{
+    this.Configuration = new Configuration()
+               .AddJsonFile("config.json")
+               .AddEnvironmentVariables();
+
+    app.UseErrorPage(ErrorPageOptions.ShowAll);
+    app.UseRollbar("My Rollbar Server Access Token");
+}
+```
+
 ## Bugs
 
 * If you encounter a bug, performance issue, or malfunction, please add an [Issue](https://github.com/mroach/rollbarsharp/issues) with steps on how to reproduce the problem.
