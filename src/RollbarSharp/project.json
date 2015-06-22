@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net40": {
+      "wrappedProject": "RollbarSharp.csproj",
+      "bin": {
+        "assembly": "obj/{configuration}/RollbarSharp.dll",
+        "pdb": "obj/{configuration}/RollbarSharp.pdb"
+      },
+      "dependencies": {
+        "Newtonsoft.Json": "5.0.1"
+      }
+    }
+  }
+}
