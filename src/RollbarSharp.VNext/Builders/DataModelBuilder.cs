@@ -11,12 +11,7 @@
 
     public class DataModelBuilder : RollbarSharp.Builders.DataModelBuilder
     {
-        public DataModelBuilder(IConfiguration config)
-            :this(JsonConfiguration.CreateFromConfig(config))
-        {
-        }
-
-        public DataModelBuilder(Configuration configuration)
+        public DataModelBuilder(Configuration configuration) : base(configuration)
         {
             Configuration = configuration;
         }

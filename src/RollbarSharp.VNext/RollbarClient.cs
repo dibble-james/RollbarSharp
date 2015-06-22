@@ -17,7 +17,7 @@
         /// <remarks>This only builds the body of the request, not the whole notice payload</remarks>
         public new DataModelBuilder NoticeBuilder { get; protected set; }
 
-        public RollbarClient(Configuration configuration)
+        public RollbarClient(Configuration configuration) : base(configuration)
         {
             Configuration = configuration;
             NoticeBuilder = new DataModelBuilder(Configuration);

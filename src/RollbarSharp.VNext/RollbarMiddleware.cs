@@ -4,6 +4,7 @@
     using System.Threading.Tasks;
     using Microsoft.AspNet.Builder;
     using Microsoft.AspNet.Http;
+    using RollbarSharp;
 
     public class RollbarMiddleware
     {
@@ -12,7 +13,7 @@
 
         public RollbarMiddleware(RequestDelegate next, Configuration config)
         {
-            this._rollbar = new Lazy<RollbarClient>(() => BuildClientFromConfig(config));
+            this._rollbar = new Lazy<RollbarClient>(() => BuildClientWithConfig(config));
 
             this._next = next;
         }
@@ -40,10 +41,10 @@
 
         private static RollbarClient BuildClient(string accessToken)
         {
-            return BuildClientFromConfig(new Configuration(accessToken));
+            return BuildClientWithConfig(new Configuration(accessToken));
         }
 
-        private static RollbarClient BuildClientFromConfig(Configuration config)
+        private static RollbarClient BuildClientWithConfig(Configuration config)
         {
             var client = new RollbarClient(config);
 
