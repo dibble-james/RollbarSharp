@@ -1,8 +1,8 @@
 ﻿namespace RollbarSharp
 {
-    using System;
     using Newtonsoft.Json;
     using Microsoft.Framework.ConfigurationModel;
+    using System;
 
     public class Configuration
     {
@@ -78,7 +78,6 @@
         /// Platform running the code. E.g. Windows or IIS.
         /// 
         /// Setting: Rollbar.Platform
-        /// Default: <see cref="System.Environment.OSVersion"/>
         /// </summary>
         public string Platform { get; set; }
 
@@ -94,7 +93,6 @@
         /// .NET Framework version
         /// 
         /// Setting: Rollbar.Framework
-        /// Default: ".NET" + <see cref="System.Environment.Version"/>
         /// </summary>
         public string Framework { get; set; }
 
@@ -133,8 +131,8 @@
             AccessToken = accessToken;
             CodeVersion = DefaultCodeVersion;
             Environment = DefaultEnvironment;
-            Platform = System.Environment.;
-            Framework = ".NET " + System.Environment.Version;
+            Platform = null; // TODO: Can we identify OS easily in DNXCore?
+            Framework = ".NET"; // TODO: Can we identify DNX version easily?
             Language = DefaultLanguage;
             ScrubParams = DefaultScrubParams;
         }
@@ -156,7 +154,9 @@
             var token = configuration.Get("Rollbar:AccessToken");
 
             if (string.IsNullOrEmpty(token))
+            {
                 throw new InvalidOperationException("Missing access token at Rollbar.AccessToken");
+            }                
 
             var conf = new Configuration(token);
 
