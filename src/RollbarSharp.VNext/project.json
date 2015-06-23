@@ -2,9 +2,9 @@
     "version": "1.0.0-*",
     "description": ".NET bindings for Rollbar.",
     "authors": [ "Me" ],
-    "tags": [ "" ],
-    "projectUrl": "",
-    "licenseUrl": "",
+    "tags": [ "Rollbar" ],
+    "projectUrl": "https://github.com/mroach/RollbarSharp",
+    "licenseUrl": "https://github.com/mroach/RollbarSharp/blob/master/LICENSE.txt",
 
     "dependencies": {
         "System.Collections": "4.0.10-beta-22816",
