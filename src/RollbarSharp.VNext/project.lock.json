@@ -4,13 +4,14 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.AspNet.Http >= 1.0.0-beta4",
+      "Microsoft.AspNet.Http.Interfaces >= 1.0.0-beta4",
       "Microsoft.CSharp >= 4.0.0-beta-22816",
       "Microsoft.Framework.ConfigurationModel.Interfaces >= 1.0.0-beta4",
       "Microsoft.Framework.Runtime.Interfaces >= 1.0.0-beta4",
+      "Newtonsoft.Json >= 7.0.1",
       "System.Collections >= 4.0.10-beta-22816",
       "System.Linq >= 4.0.0-beta-22816",
-      "System.Threading >= 4.0.10-beta-22816",
-      "Newtonsoft.Json >= 7.0.1"
+      "System.Threading >= 4.0.10-beta-22816"
     ],
     "DNXCore,Version=v5.0": []
   },
@@ -54,6 +55,37 @@
         "lib/dnx451/Microsoft.AspNet.Http.xml",
         "lib/dnxcore50/Microsoft.AspNet.Http.dll",
         "lib/dnxcore50/Microsoft.AspNet.Http.xml"
+      ]
+    },
+    "Microsoft.AspNet.Http.Interfaces/1.0.0-beta4": {
+      "serviceable": true,
+      "sha": "31C78ja91ggo1ywLn83yNpTR0pnhMbPMcKhE72Gx3I5M0F1foDJQTHBOBFS0ebGkn8eiDMWkKGqjYucslaiu5Q==",
+      "frameworks": {
+        "DNXCore,Version=v5.0": {
+          "dependencies": {
+            "Microsoft.Net.WebSocketAbstractions": "1.0.0-beta4",
+            "System.Net.Primitives": "4.0.10-beta-22816",
+            "System.Security.Claims": "4.0.0-beta-22816",
+            "System.Security.Cryptography.X509Certificates": "4.0.0-beta-22816",
+            "System.Security.Principal": "4.0.0-beta-22816"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/dnxcore50/Microsoft.AspNet.Http.Interfaces.dll"
+          ],
+          "compileAssemblies": [
+            "lib/dnxcore50/Microsoft.AspNet.Http.Interfaces.dll"
+          ]
+        }
+      },
+      "files": [
+        "Microsoft.AspNet.Http.Interfaces.1.0.0-beta4.nupkg",
+        "Microsoft.AspNet.Http.Interfaces.1.0.0-beta4.nupkg.sha512",
+        "Microsoft.AspNet.Http.Interfaces.nuspec",
+        "lib/dnx451/Microsoft.AspNet.Http.Interfaces.dll",
+        "lib/dnx451/Microsoft.AspNet.Http.Interfaces.xml",
+        "lib/dnxcore50/Microsoft.AspNet.Http.Interfaces.dll",
+        "lib/dnxcore50/Microsoft.AspNet.Http.Interfaces.xml"
       ]
     },
     "Microsoft.CSharp/4.0.0-beta-22816": {
@@ -601,6 +633,35 @@
         "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.Linq.Expressions.dll"
       ]
     },
+    "System.Net.Primitives/4.0.10-beta-22816": {
+      "serviceable": false,
+      "sha": "qjGWAfaOkFxhOvk10zmUgUPOl2ae+ECrNiHBXPnPlaU7o+1GmsPkkc9L1XNQ4J5+qKS85JZSRUZZviVmiVy1Rw==",
+      "frameworks": {
+        "DNXCore,Version=v5.0": {
+          "dependencies": {
+            "System.Runtime": "4.0.20-beta-22816",
+            "System.Runtime.Handles": "4.0.0-beta-22816"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/aspnetcore50/System.Net.Primitives.dll"
+          ],
+          "compileAssemblies": [
+            "lib/contract/System.Net.Primitives.dll"
+          ]
+        }
+      },
+      "files": [
+        "License.rtf",
+        "System.Net.Primitives.4.0.10-beta-22816.nupkg",
+        "System.Net.Primitives.4.0.10-beta-22816.nupkg.sha512",
+        "System.Net.Primitives.nuspec",
+        "lib/aspnetcore50/System.Net.Primitives.dll",
+        "lib/contract/System.Net.Primitives.dll",
+        "lib/net45/System.Net.Primitives.dll",
+        "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.Net.Primitives.dll"
+      ]
+    },
     "System.ObjectModel/4.0.10-beta-22816": {
       "serviceable": false,
       "sha": "Rtu5FLq7JTtignXiSEKx26Q01NHyoO3pTcYYdwF54kFC64VbHEcvs8b586JyVVpM7Wz0zBmdgHDrH9fv2MgeVw==",
@@ -858,6 +919,95 @@
         "lib/contract/System.Security.Claims.dll",
         "lib/net45/System.Security.Claims.dll",
         "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.Security.Claims.dll"
+      ]
+    },
+    "System.Security.Cryptography.Encoding/4.0.0-beta-22816": {
+      "serviceable": false,
+      "sha": "xxstV4LYIz4ugAWAkXkGlmdrXsl7Nmg1JimeaNVTmMGrTu99VLHW5Mn9HCyozLonxGE4XSgxO8Z/2Ys/FirsPQ==",
+      "frameworks": {
+        "DNXCore,Version=v5.0": {
+          "dependencies": {
+            "System.Runtime": "4.0.20-beta-22816"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/aspnetcore50/System.Security.Cryptography.Encoding.dll"
+          ],
+          "compileAssemblies": [
+            "lib/contract/System.Security.Cryptography.Encoding.dll"
+          ]
+        }
+      },
+      "files": [
+        "License.rtf",
+        "System.Security.Cryptography.Encoding.4.0.0-beta-22816.nupkg",
+        "System.Security.Cryptography.Encoding.4.0.0-beta-22816.nupkg.sha512",
+        "System.Security.Cryptography.Encoding.nuspec",
+        "lib/aspnetcore50/System.Security.Cryptography.Encoding.dll",
+        "lib/contract/System.Security.Cryptography.Encoding.dll",
+        "lib/net45/System.Security.Cryptography.Encoding.dll",
+        "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.Security.Cryptography.Encoding.dll"
+      ]
+    },
+    "System.Security.Cryptography.Encryption/4.0.0-beta-22816": {
+      "serviceable": false,
+      "sha": "oAKOXFCQFabEfmiHHLfVFnuv/ber/FuAAmcgdPyUwgg3PWCgss6GhEP89eopGIrKacGUOhberA2W2WYJax3jKQ==",
+      "frameworks": {
+        "DNXCore,Version=v5.0": {
+          "dependencies": {
+            "System.IO": "4.0.10-beta-22816",
+            "System.Runtime": "4.0.20-beta-22816",
+            "System.Threading.Tasks": "4.0.10-beta-22816"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/aspnetcore50/System.Security.Cryptography.Encryption.dll"
+          ],
+          "compileAssemblies": [
+            "lib/contract/System.Security.Cryptography.Encryption.dll"
+          ]
+        }
+      },
+      "files": [
+        "License.rtf",
+        "System.Security.Cryptography.Encryption.4.0.0-beta-22816.nupkg",
+        "System.Security.Cryptography.Encryption.4.0.0-beta-22816.nupkg.sha512",
+        "System.Security.Cryptography.Encryption.nuspec",
+        "lib/aspnetcore50/System.Security.Cryptography.Encryption.dll",
+        "lib/contract/System.Security.Cryptography.Encryption.dll",
+        "lib/net45/System.Security.Cryptography.Encryption.dll",
+        "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.Security.Cryptography.Encryption.dll"
+      ]
+    },
+    "System.Security.Cryptography.X509Certificates/4.0.0-beta-22816": {
+      "serviceable": false,
+      "sha": "1GWuXid5RltZu+zMiPbnBv78TqUwF7Gw3hH68l4x7B83iXwAibafGtBRkU6b0Ca8xRQ0QW+gdZ8Z9qwouckGiw==",
+      "frameworks": {
+        "DNXCore,Version=v5.0": {
+          "dependencies": {
+            "System.Runtime": "4.0.20-beta-22816",
+            "System.Runtime.Handles": "4.0.0-beta-22816",
+            "System.Security.Cryptography.Encoding": "4.0.0-beta-22816",
+            "System.Security.Cryptography.Encryption": "4.0.0-beta-22816"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/aspnetcore50/System.Security.Cryptography.X509Certificates.dll"
+          ],
+          "compileAssemblies": [
+            "lib/contract/System.Security.Cryptography.X509Certificates.dll"
+          ]
+        }
+      },
+      "files": [
+        "License.rtf",
+        "System.Security.Cryptography.X509Certificates.4.0.0-beta-22816.nupkg",
+        "System.Security.Cryptography.X509Certificates.4.0.0-beta-22816.nupkg.sha512",
+        "System.Security.Cryptography.X509Certificates.nuspec",
+        "lib/aspnetcore50/System.Security.Cryptography.X509Certificates.dll",
+        "lib/contract/System.Security.Cryptography.X509Certificates.dll",
+        "lib/net45/System.Security.Cryptography.X509Certificates.dll",
+        "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.Security.Cryptography.X509Certificates.dll"
       ]
     },
     "System.Security.Principal/4.0.0-beta-22816": {
