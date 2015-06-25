@@ -3,6 +3,7 @@
     using Newtonsoft.Json;
     using Microsoft.Framework.ConfigurationModel;
     using System;
+    using Microsoft.Framework.Runtime;
 
     public class Configuration
     {
@@ -125,14 +126,14 @@
             }
         }
 
-        public Configuration(string accessToken)
+        public Configuration(string accessToken, IApplicationEnvironment environment)
         {
             Endpoint = DefaultEndpoint;
             AccessToken = accessToken;
             CodeVersion = DefaultCodeVersion;
             Environment = DefaultEnvironment;
             Platform = null; // TODO: Can we identify OS easily in DNXCore?
-            Framework = ".NET"; // TODO: Can we identify DNX version easily?
+            Framework = ".NET" + environment.RuntimeFramework.FullName;
             Language = DefaultLanguage;
             ScrubParams = DefaultScrubParams;
         }
@@ -149,7 +150,7 @@
         /// Rollbar.GitSha
         /// </summary>
         /// <returns></returns>
-        public static Configuration CreateFromConfig(IConfiguration configuration)
+        public static Configuration CreateFromConfig(IConfiguration configuration, IApplicationEnvironment environment)
         {
             var token = configuration.Get("Rollbar:AccessToken");
 
@@ -158,7 +159,7 @@
                 throw new InvalidOperationException("Missing access token at Rollbar.AccessToken");
             }                
 
-            var conf = new Configuration(token);
+            var conf = new Configuration(token, environment);
 
             conf.CodeVersion = configuration.Get("Rollbar:CodeVersion") ?? conf.CodeVersion;
             conf.Endpoint = configuration.Get("Rollbar:Endpoint") ?? conf.Endpoint;
