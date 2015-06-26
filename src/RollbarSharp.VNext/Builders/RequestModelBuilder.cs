@@ -16,19 +16,17 @@
             {
                 Url = string.Concat(request.Scheme, "://", request.Host, request.Path),
                 Method = request.Method,
-                Headers = request.Headers.ToDictionary(kvp => kvp.Key, kvp => string.Join(",", kvp.Value))
+                Headers = request.Headers.ToDictionary(kvp => kvp.Key, kvp => string.Join(",", kvp.Value)),
+                Session = request.HttpContext.Session.ToDictionary(kvp => kvp.Key, kvp => Encoding.UTF8.GetString(kvp.Value)),
+                UserIp = request.HttpContext.GetFeature<IHttpConnectionFeature>()?.RemoteIpAddress.ToString()
             };
-            
-            m.Session = request.HttpContext.Session.ToDictionary(kvp => kvp.Key, kvp => Encoding.UTF8.GetString(kvp.Value));
 
             if (request.QueryString.HasValue)
             {
                 var rawQueryString = request.QueryString.Value.TrimStart('?');
 
-                var queryStringParameters =
-                    rawQueryString.Split('&').Select(qs => new KeyValuePair<string, string>(qs.Split('=').First(), qs.Split('=').Last()));
-
-                m.QueryStringParameters = queryStringParameters.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+                m.QueryStringParameters =
+                    rawQueryString.Split('&').ToDictionary(qs => qs.Split('=').First(), qs => qs.Split('=').Last());
             }
 
             try
@@ -41,8 +39,6 @@
                 // Swallow IOE.  ASP.Net throws this is no form exists.  Add the request body instead.
                 m.PostParameters.Add("Body", new StreamReader(request.Body).ReadToEnd());
             }
-
-            m.UserIp = request.HttpContext.GetFeature<IHttpConnectionFeature>()?.RemoteIpAddress.ToString();
 
             if (scrubParams != null)
             {
