@@ -13,14 +13,12 @@
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public static ServerModel CreateFromHttpRequest(HttpRequest request, IApplicationEnvironment environment)
+        public static ServerModel CreateFromHttpRequest(HttpRequest request, IApplicationEnvironment environment, Configuration configuration)
         {
             var host = request.Host.ToUriComponent();
-
             var root = environment.ApplicationBasePath;
-                        
-            var machine = Environment.GetEnvironmentVariable("COMPUTERNAME");
-            var software = environment.RuntimeFramework.FullName;
+            var machine = configuration.ServerName;
+            var software = configuration.Framework;
 
             return new ServerModel { Host = host, Root = root, Machine = machine, Software = software };
         }

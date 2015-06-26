@@ -46,7 +46,7 @@
 
         /// <summary>
         /// URL for the Rollbar API
-        /// Setting: Rollbar.Endpoint
+        /// Setting: Rollbar:Endpoint
         /// </summary>
         public string Endpoint { get; set; }
 
@@ -54,7 +54,7 @@
         /// The server-side access token for your application in Rollbar.
         /// Also known as the post_server_item key
         /// 
-        /// Setting: Rollbar.AccessToken
+        /// Setting: Rollbar:AccessToken
         /// Default: None. You have to set this.
         /// </summary>
         public string AccessToken { get; set; }
@@ -62,7 +62,7 @@
         /// <summary>
         /// Version of the application that is running (see https://rollbar.com/blog/post/2013/09/17/resolving-rollbar-items-in-versions)
         /// 
-        /// Setting: Rollbar.CodeVersion
+        /// Setting: Rollbar:CodeVersion
         /// Default: <see cref="RollbarSharp.Configuration.DefaultCodeVersion"/>
         /// </summary>
         public string CodeVersion;
@@ -70,7 +70,7 @@
         /// <summary>
         /// Name of the environment this app is running in. Usually "production" or "staging"
         /// 
-        /// Setting: Rollbar.Environment
+        /// Setting: Rollbar:Environment
         /// Default: production
         /// </summary>
         public string Environment { get; set; }
@@ -78,14 +78,14 @@
         /// <summary>
         /// Platform running the code. E.g. Windows or IIS.
         /// 
-        /// Setting: Rollbar.Platform
+        /// Setting: Rollbar:Platform
         /// </summary>
         public string Platform { get; set; }
 
         /// <summary>
         /// Code language. Defaults to csharp.
         /// 
-        /// Setting: Rollbar.Language
+        /// Setting: Rollbar:Language
         /// Default: csharp
         /// </summary>
         public string Language { get; set; }
@@ -93,14 +93,14 @@
         /// <summary>
         /// .NET Framework version
         /// 
-        /// Setting: Rollbar.Framework
+        /// Setting: Rollbar:Framework
         /// </summary>
         public string Framework { get; set; }
 
         /// <summary>
         /// GIT SHA hash of the running code
         /// 
-        /// Setting: Rollbar.GitSha
+        /// Setting: Rollbar:GitSha
         /// Default: None. You have to set this.
         /// </summary>
         public string GitSha { get; set; }
@@ -110,6 +110,13 @@
         /// being sent to rollbar. Such as passwords, secret keys, etc.
         /// </summary>
         public string[] ScrubParams { get; set; }
+
+        /// <summary>
+        /// The machine hosting the application.
+        /// Setting: Rollbar:ServerName
+        /// Default: Environment.GetEnvironmentVariable("COMPUTERNAME")
+        /// </summary>
+        public string ServerName { get; set; }
 
         /// <summary>
         /// Settings used to serialize the payload to JSON when posting to Rollbar
@@ -136,6 +143,7 @@
             Framework = ".NET" + environment.RuntimeFramework.FullName;
             Language = DefaultLanguage;
             ScrubParams = DefaultScrubParams;
+            ServerName = System.Environment.GetEnvironmentVariable("COMPUTERNAME");
         }
 
         /// <summary>
@@ -150,7 +158,7 @@
         /// Rollbar.GitSha
         /// </summary>
         /// <returns></returns>
-        public static Configuration CreateFromConfig(IConfiguration configuration, IApplicationEnvironment environment)
+        public static Configuration Create(IConfiguration configuration, IApplicationEnvironment environment)
         {
             var token = configuration.Get("Rollbar:AccessToken");
 
@@ -168,6 +176,7 @@
             conf.Language = configuration.Get("Rollbar:CodeLanguage") ?? conf.Language;
             conf.Framework = configuration.Get("Rolllbar:Framework") ?? conf.Framework;
             conf.GitSha = configuration.Get("Rollbar:GitSha");
+            conf.ServerName = configuration.Get("Rollbar:ServerName") ?? conf.ServerName;
 
             var scrubParams = configuration.Get("Rollbar:ScrubParams");
             conf.ScrubParams = scrubParams == null ? DefaultScrubParams : scrubParams.Split(',');
