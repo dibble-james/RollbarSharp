@@ -1,25 +1,26 @@
 {
-  "version": "1.0.0-*",
-  "description": ".NET bindings for Rollbar.",
-  "authors": [ "Me" ],
-  "tags": [ "Rollbar" ],
-  "projectUrl": "https://github.com/mroach/RollbarSharp",
-  "licenseUrl": "https://github.com/mroach/RollbarSharp/blob/master/LICENSE.txt",
+    "version": "1.0.0-*",
+    "description": ".NET bindings for Rollbar.",
+    "authors": [ "Me" ],
+    "tags": [ "Rollbar" ],
+    "projectUrl": "https://github.com/mroach/RollbarSharp",
+    "licenseUrl": "https://github.com/mroach/RollbarSharp/blob/master/LICENSE.txt",
 
-  "dependencies": {
-    "Microsoft.AspNet.Http": "1.0.0-beta4",
-    "Microsoft.AspNet.Http.Interfaces": "1.0.0-beta4",
-    "Microsoft.CSharp": "4.0.0-beta-22816",
-    "Microsoft.Framework.ConfigurationModel.Interfaces": "1.0.0-beta4",
-    "Microsoft.Framework.Runtime.Interfaces": "1.0.0-beta4",
-    "Newtonsoft.Json": "7.0.1",
-    "System.Collections": "4.0.10-beta-22816",
-    "System.Linq": "4.0.0-beta-22816",
-    "System.Threading": "4.0.10-beta-22816"
-  },
+    "dependencies": {
+        "Microsoft.AspNet.Http": "1.0.0-beta4",
+        "Microsoft.AspNet.Http.Interfaces": "1.0.0-beta4",
+        "Microsoft.CSharp": "4.0.0-beta-22816",
+        "Microsoft.Framework.ConfigurationModel.Interfaces": "1.0.0-beta4",
+        "Microsoft.Framework.Runtime.Interfaces": "1.0.0-beta4",
+        "Newtonsoft.Json": "7.0.1",
+        "System.Collections": "4.0.10-beta-22816",
+        "System.Linq": "4.0.0-beta-22816",
+        "System.Threading": "4.0.10-beta-22816",
+        "System.Diagnostics.TraceSource": "4.0.0-beta-22816"
+    },
 
-  "frameworks": {
-    "dnxcore50": {
+    "frameworks": {
+        "dnxcore50": {
+        }
     }
-  }
 }

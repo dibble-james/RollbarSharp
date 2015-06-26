@@ -11,7 +11,8 @@
       "Newtonsoft.Json >= 7.0.1",
       "System.Collections >= 4.0.10-beta-22816",
       "System.Linq >= 4.0.0-beta-22816",
-      "System.Threading >= 4.0.10-beta-22816"
+      "System.Threading >= 4.0.10-beta-22816",
+      "System.Diagnostics.TraceSource >= 4.0.0-beta-22816"
     ],
     "DNXCore,Version=v5.0": []
   },
@@ -393,6 +394,34 @@
         "lib/contract/System.Diagnostics.Tools.dll",
         "lib/net45/System.Diagnostics.Tools.dll",
         "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.Diagnostics.Tools.dll"
+      ]
+    },
+    "System.Diagnostics.TraceSource/4.0.0-beta-22816": {
+      "serviceable": false,
+      "sha": "8ifv7iDyrKaoL60L6RLeKhMdvBs2sT14lUJoUJ919J4x54GRHZgQjz8qESKHvecjSXByOp+WBtP7OTYNoo3XDQ==",
+      "frameworks": {
+        "DNXCore,Version=v5.0": {
+          "dependencies": {
+            "System.Runtime": "4.0.20-beta-22816"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/aspnetcore50/System.Diagnostics.TraceSource.dll"
+          ],
+          "compileAssemblies": [
+            "lib/contract/System.Diagnostics.TraceSource.dll"
+          ]
+        }
+      },
+      "files": [
+        "License.rtf",
+        "System.Diagnostics.TraceSource.4.0.0-beta-22816.nupkg",
+        "System.Diagnostics.TraceSource.4.0.0-beta-22816.nupkg.sha512",
+        "System.Diagnostics.TraceSource.nuspec",
+        "lib/aspnetcore50/System.Diagnostics.TraceSource.dll",
+        "lib/contract/System.Diagnostics.TraceSource.dll",
+        "lib/net45/System.Diagnostics.TraceSource.dll",
+        "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.Diagnostics.TraceSource.dll"
       ]
     },
     "System.Dynamic.Runtime/4.0.10-beta-22816": {
